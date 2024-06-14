@@ -1,0 +1,26 @@
+<html>
+    <title>Test Login System</title>
+    <body>
+        <form method="post" action="authenticationlogin.php">
+            <div id="login"> 
+                <p>  
+                    <label> UserName: </label>  
+                    <input type = "text" id ="user" name  = "user" required />  
+                </p>  
+                <p>  
+                    <label> Password: </label>  
+                    <input type = "password" id ="pass" name  = "pass" required />  
+                </p>  
+                <p>     
+                    <input type =  "submit" id = "btn" value = "Login" />  
+                </p>  
+            </div>
+            <input type="button" onclick="signup()" value = "SignUp?">
+        </form>
+        <script>  
+            function signup() {
+                location.href = "signup.html";
+        }
+        </script>
+    </body>
+</html>
