@@ -1,5 +1,6 @@
 <?php 
 	//palagyan rin ng validation
+	//ayaw ko, ikaw na whahaha
 	include('connection.php');
 	if (isset($_POST['submit'])) {
 		$strEquipName = $_POST['strEquipName'];
