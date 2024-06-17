@@ -1,21 +1,20 @@
 <?php
 	include('connection.php');
-	if (isset($_POST['submit'])) {
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$id = $_GET['updateid'];
 		$intEquipID_fk = $_POST['intEquipID_fk'];
 		$intBranchID_fk = $_POST['intBranchID_fk'];
-		$intInvQuantity = $_POST['intInvQuantity'];
+		$intIntQuantity = $_POST['intInvQuantity'];
 
-		$query = mysqli_query($conn, "INSERT INTO inventorytable(intEquipID_fk, intBranchID_fk, intInvQuantity) VALUES 
-			('$intEquipID_fk', '$intBranchID_fk', '$intInvQuantity')");
+		$query = mysqli_query($conn, "UPDATE inventorytable SET intEquipID_fk = '$intEquipID_fk', intBranchID_fk = '$intBranchID_fk' WHERE intInvID = '$id'");
 		if($query) {
-			echo "<script>alert('Successfully Added')</script>";
-			echo "<script type = 'text/javascript'> document.location = 'Inventory_view.php'</script>";
+			echo "<script>alert('Successfully Updated')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Equipment_view.php'</script>";
 		}else{
-			echo "<script>alert('Failed to Add due to an error ')</script>";
-			echo "<script type = 'text/javascript'> document.location = 'Inventory_view.php'</script>";
+			echo "<script>alert('Failed to update due to an error ')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Equipment_view.php'</script>";
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,11 +38,18 @@
 	
 	<div style="margin-left:15%">
 		<div class="w3-container w3-teal">
-  			<h1>Add New Inventory</h1>
+  			<h1>Add new Inventory</h1>
   		</div>
 	<form class="w3-container w3-card-4 w3-light-grey" method="POST">
+
+		<?php
+			$id = $_GET['updateid'];
+				$query = mysqli_query($conn, "SELECT * FROM inventorytable WHERE  intInvID = '$id'");
+				while ($row = mysqli_fetch_array($query)) {
+		?>
+
 		<label>Equipment Name</label>
-		<select class="w3-select" name = "intEquipID_fk" required>
+		<select class="w3-select" value = "<?php echo $row['intBranchID_fk']?>" name = "intEquipID_fk" required>
 			<?php
 				$intEquipID_fk = mysqli_query($conn, "select * from equipmenttable");
 				while($ce = mysqli_fetch_array($intEquipID_fk)){
@@ -53,7 +59,7 @@
 		</select><br>
 
 		<label>Branch</label>
-		<select class="w3-select" name = "intBranchID_fk" required>
+		<select class="w3-select" value = "<?php echo $row['intBranchID_fk']?>" name = "intBranchID_fk" required>
 			<?php
 				$intBranchID_fk = mysqli_query($conn, "select * from branchtable");
 				while($c = mysqli_fetch_array($intBranchID_fk)){
@@ -65,9 +71,11 @@
 		<label>Equipment Quantity</label>
 		<input class="w3-input w3-border" type="Number" name="intInvQuantity"><br>
 
+	<?php } // while bracket end ?>
+
 		<input type="submit" class="w3-button w3-green" name="submit">
 
-		<a class="w3-button w3-green" href="Inventory_view.php">Go Back</a>
+		<a class="w3-button w3-green" href="inventory_view.php">Go Back</a>
 	</form>
 	</div>
 </body>

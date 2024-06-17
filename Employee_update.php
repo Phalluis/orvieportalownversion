@@ -30,10 +30,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Add Employee</title>
+	<link rel="stylesheet" href="w3.css">
+	<title>Edit Employee</title>
 </head>
 <body>
-	<form method="POST">
+	<!-- Sidebar -->
+	<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+  		<h3 class="w3-bar-item">Home</h3>
+  		<a class="w3-bar-item w3-button" href="Branch_view.php">Branch</a>
+  		<a class="w3-bar-item w3-button" href="Employee_view.php">Employee</a>
+  		<a class="w3-bar-item w3-button" href="Equipment_view.php">Equipment</a>
+  		<a class="w3-bar-item w3-button" href="Inventory_view.php">Inventory</a>
+  		<a class="w3-bar-item w3-button" href="Membership_view.php">Membership</a>
+	</div>
+	<!--end sidedbar-->
+	
+	<div style="margin-left:15%">
+		<div class="w3-container w3-teal">
+  			<h1>Edit Employee</h1>
+  		</div>
+	<form class="w3-container w3-card-4 w3-light-grey" method="POST">
 
 		<?php
 			$id = $_GET['updateid'];
@@ -42,38 +58,38 @@
 		?>
 
 		<label>Employee Lastname</label>
-		<input type="text" value = "<?php echo $row['strEmpLN']?>" name="strEmpLN" required><br>
+		<input class="w3-input w3-border" type="text" value = "<?php echo $row['strEmpLN']?>" name="strEmpLN" required><br>
 
 		<label>Employee Firstname</label>
-		<input type="text" value = "<?php echo $row['strEmpFN']?>" name="strEmpFN" required><br>
+		<input class="w3-input w3-border" type="text" value = "<?php echo $row['strEmpFN']?>" name="strEmpFN" required><br>
 
 		<label>Employee Position</label>
-		<input type="text" value = "<?php echo $row['strEmpPosition']?>" name="strEmpPosition" required><br>
+		<input class="w3-input w3-border" type="text" value = "<?php echo $row['strEmpPosition']?>" name="strEmpPosition" required><br>
 
 		<label>Employee Address</label>
-		<input type="text" value = "<?php echo $row['strEmpAddress']?>" name="strEmpAddress" required><br>
+		<input class="w3-input w3-border" type="text" value = "<?php echo $row['strEmpAddress']?>" name="strEmpAddress" required><br>
 
 		<label>Employee Gender</label>
-		<select value = "<?php echo $row['strEmpGender']?>" name="strEmpGender" required>
+		<select class="w3-select" value = "<?php echo $row['strEmpGender']?>" name="strEmpGender" required>
 			<option>--Select Gender</option>
 			<option>Male</option>
 			<option>Female</option>
-		</select><br>
+		</select><br><br>
 
 		<label>Employee Date of Birth</label>
-		<input type="Date" value = "<?php echo $row['intEmpBirth']?>" name="intEmpBirth" required><br>
+		<input type="Date" value = "<?php echo $row['intEmpBirth']?>" name="intEmpBirth" required><br><br>
 
 		<label>Employee Age</label>
-		<input type="Number" value = "<?php echo $row['intEmpAge']?>" name="intEmpAge" required><br>
+		<input class="w3-input w3-border" type="Number" value = "<?php echo $row['intEmpAge']?>" name="intEmpAge" required><br>
 
 		<label>Employee Contact Number</label>
-		<input type="Number" value = "<?php echo $row['intEmpConNum']?>" name="intEmpConNum" required><br>
+		<input class="w3-input w3-border" type="Number" value = "<?php echo $row['intEmpConNum']?>" name="intEmpConNum" required><br>
 
 		<label>Employee Email</label>
-		<input type="Email" value = "<?php echo $row['strEmpConEmail']?>" name="strEmpConEmail" required><br>
+		<input class="w3-input w3-border" type="Email" value = "<?php echo $row['strEmpConEmail']?>" name="strEmpConEmail" required><br>
 
 		<label>Employee Branch</label>
-		<select value = "<?php echo $row['intBranchID_fk']?>" name = "intBranchID_fk" required>
+		<select class="w3-select" value = "<?php echo $row['intBranchID_fk']?>" name = "intBranchID_fk" required>
 			<?php
 				$intBranchID_fk = mysqli_query($conn, "select * from branchtable");
 				while($c = mysqli_fetch_array($intBranchID_fk)){
@@ -84,9 +100,10 @@
 
 		<?php } // while bracket end ?>
 
-		<input type="submit" name="submit">
+		<input type="submit" class="w3-button w3-green" name="submit">
 
-		<a href="Employee_view.php">Go Back</a>
+		<a class="w3-button w3-green" href="Employee_view.php">Go Back</a>
 	</form>
+	</div>
 </body>
 </html>

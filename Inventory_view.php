@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<title>Branch List</title>
+	<link rel="stylesheet" href="w3.css">
+	<title>Inventory List</title>
 </head>
 <body>
 	<!-- Sidebar -->
@@ -18,42 +18,43 @@
 	</div>
 	<!--end sidedbar-->
 
-	<div style="margin-left:15%"><!--margin para hindi matago ng sidebar yung maincontent-->
+	<div style="margin-left:15%">
 		<div class="w3-container w3-teal">
-  			<h1>Branch</h1>
+  			<h1>Inventory</h1>
 		</div>
-  			<a class="w3-button w3-green" href="Branch_Insert.php">Add new Branch</a>
+		<a class="w3-button w3-green" href="Inventory_insert.php">Add New Inventory</a>
 	<table class="w3-table-all">
 		<thead>
 			<tr>
-				<th>Branch Name</th>
-				<th>Branch Address</th>
-				<th>Modify</th>
+				<th>Equipment Code</th>
+				<th>Branch Code</th>
+				<th>Quantity</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-				include('connection.php');	
-				$fetch = mysqli_query($conn, "SELECT * FROM branchtable");
+				include('connection.php');
+				$fetch = mysqli_query($conn, "SELECT * FROM inventorytable");
 				$row = mysqli_num_rows($fetch);
 				if ($row > 0) {
 					while ($r = mysqli_fetch_array($fetch)) {
 			?>
-					<tr>
-						<td><?php echo $r['strBranchname']; ?></td>
-						<td><?php echo $r['strBranchAddress']; ?></td>
-						<td>
-							<a href = "Branch_update.php?updateid=<?php echo $r['intBranchID'] ?>">Edit</a>
-							<a href = "Branch_delete.php?deleteid=<?php echo $r['intBranchID'] ?>">Delete</a>
-						</td>
-					</tr>
-			<?php
+			<tr>
+				<th><?php echo $r['intEquipID_fk'];   ?></th>
+				<th><?php echo $r['intBranchID_fk'];  ?></th>
+				<th><?php echo $r['intInvQuantity'];  ?></th>
+
+				<td>
+					<a href = "Inventory_update.php?updateid=<?php echo $r['intInvID'] ?>">Edit</a>
+					<a href = "Inventory_delete.php?deleteid=<?php echo $r['intInvID'] ?>">Delete</a>
+				</td>
+			<?php			
 					}
 				}
 			?>
+			</tr>
 		</tbody>
 	</table>
-
 	</div>
 </body>
 </html>
