@@ -16,6 +16,7 @@
             $count = $result->num_rows;
 
             if ($count == 1) {
+                //stores the username into $_SESSION['username'] which is a universal variable until the session is closed
                 $_SESSION['username'] = $username;
                 header("Location: welcome.php");
                 exit();
