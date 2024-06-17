@@ -17,9 +17,11 @@
 			(strEmpLN, strEmpFN, strEmpPosition, strEmpAddress, strEmpGender, intEmpBirth, intEmpAge, intEmpConNum, strEmpConEmail, intBranchID_fk) VALUES 
 			('$strEmpLN', '$strEmpFN', '$strEmpPosition', '$strEmpAddress', '$strEmpGender', '$intEmpBirth', '$intEmpAge', '$intEmpConNum', '$strEmpConEmail', '$intBranchID_fk')");
 		if($query) {
-			echo "<script>alert('Pasok')</script>";
+			echo "<script>alert('Successfully Added')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}else{
-			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script>alert('Failed to Add due to an error ')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}
 	}
 ?>
@@ -75,6 +77,8 @@
 		</select><br>
 
 		<input type="submit" name="submit">
+
+		<a href="Employee_view.php">Go back</a>
 	</form>
 </body>
 </html>

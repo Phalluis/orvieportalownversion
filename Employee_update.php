@@ -16,10 +16,10 @@
 		$sql = mysqli_query($conn, "UPDATE  employeetable set
 			strEmpLN = '$strEmpLN', strEmpFN = '$strEmpFN', strEmpPosition = '$strEmpPosition', strEmpAddress = '$strEmpAddress', strEmpGender = '$strEmpGender', intEmpBirth = '$intEmpbirth', intEmpAge = '$intEmpAge', intEmpConNum = '$intEmpConNum', strEmpConEmail = '$strEmpConEmail', intBranchID_fk = '$intBranchID_fk' WHERE intEmpID =  '$id'");
 		if($sql) {
-			echo "<script>alert('Pasok na pasok for the second time')</script>";
+			echo "<script>alert('Successfully Updated')</script>";
 			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}else{
-			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script>alert('Failed to update due to an error ')</script>";
 			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}
 	}
@@ -85,6 +85,8 @@
 		<?php } // while bracket end ?>
 
 		<input type="submit" name="submit">
+
+		<a href="Employee_view.php">Go Back</a>
 	</form>
 </body>
 </html>

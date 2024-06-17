@@ -9,9 +9,11 @@
 			(strEquipName, strEquipDesc) VALUES 
 			('$strEquipName','$strEquipDesc')");
 		if($query) {
-			echo "<script>alert('Pasok')</script>";
+			echo "<script>alert('Successfully Added')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Equipment_view.php'</script>";
 		}else{
-			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script>alert('Failed to Add due to an error ')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Equipment_view.php'</script>";
 		}
 	}
 
@@ -32,6 +34,8 @@
 		<input type="text" name="strEquipDesc" required><br>
 
 		<input type="submit" name="submit">
+
+		<a href="Employee_view.php">Go Back</a>
 	</form>
 </body>
 </html>
