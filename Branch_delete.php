@@ -11,22 +11,3 @@
 		}
 	}
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Add Branch</title>
-</head>
-<body>
-	<form method="POST">
-		<label for="strBranchname">Branch Name</label>
-		<input type="text" name="strBranchname" required><br>
-		<label for="strBranchAddress">Branch Address</label>
-		<input type="text" name="strBranchAddress" required><br>
-
-		<input type="submit" name="submit">
-	</form>
-</body>
-</html>
