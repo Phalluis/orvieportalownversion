@@ -7,9 +7,10 @@
             $row = mysqli_fetch_assoc($query);
             $currentEndDate = $row['intMemEnd'];
         
-            //dito sya mag extend
+            //stores the new enddate in $newEndDate
             $newEndDate = date('Y-m-d', strtotime($currentEndDate . ' + 1 month'));
-            //uupdate neto yung end date sa database para maging extended
+            
+            //dito sya mag extend
             $updateQuery = mysqli_query($conn, "UPDATE membershiptable SET intMemEnd='$newEndDate' WHERE intMemID=$id");
             
             if ($updateQuery) {
