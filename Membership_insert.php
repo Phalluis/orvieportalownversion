@@ -10,7 +10,7 @@
 		$strMemGender   = $_POST['strMemGender'];
 		$intMemConNum   = $_POST['intMemConNum'];
 		$strMemConEmail = $_POST['strMemConEmail'];
-		$strMenAddress  = $_POST['strMemAddress'];
+		$strMemAddress  = $_POST['strMemAddress'];
 		$intMemStart	= $_POST['intMemStart'];
 		$intMemEnd		= $_POST['intMemEnd'];
 		$intBranchID_fk = $_POST['intBranchID_fk'];
@@ -81,5 +81,11 @@
 		<input type="submit" name="submit">
 
 	</form>
+	<?php 
+		if (isset(
+		$_POST['submit'])) {
+		echo "<script type = 'text/javascript'> document.location = 'Membership_view.php'</script>";
+		}
+	?>
 </body>
 </html>

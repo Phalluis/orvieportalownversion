@@ -8,6 +8,7 @@
 			echo "<script type= 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}else{
 			echo "<script>alert('Error')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}
 	}
 ?>

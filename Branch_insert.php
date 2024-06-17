@@ -8,8 +8,10 @@
 		$query = mysqli_query($conn, "INSERT INTO branchtable(strBranchname, strBranchAddress) Values ('$strBranchname', '$strBranchAddress')");
 		if($query) {
 			echo "<script>alert('Pasok')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}else{
 			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}
 	}
 ?>

@@ -12,7 +12,12 @@
 			echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}else{
 			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 		}
+	}
+	else{
+		echo "<script>alert('Nigga walang branch Id')</script>";
+		echo "<script type = 'text/javascript'> document.location = 'Branch_view.php'</script>";
 	}
 ?>
 
@@ -27,7 +32,7 @@
 	<form method="POST">
 		<?php
 			$id = $_GET['updateid'];
-				$query = mysqli_query($conn, "SELECT * FROM branchtable WHERE  intBranchID = '$id'");
+				$query = mysqli_query($conn, "SELECT * FROM branchtable WHERE intBranchID = '$id'");
 				while ($row = mysqli_fetch_array($query)) {
 		?>
 		<label for="strBranchname">Branch Name</label>

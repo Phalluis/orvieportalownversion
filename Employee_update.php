@@ -20,6 +20,7 @@
 			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}else{
 			echo "<script>alert('Hindi Pasok')</script>";
+			echo "<script type = 'text/javascript'> document.location = 'Employee_view.php'</script>";
 		}
 	}
 ?>
