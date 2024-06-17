@@ -77,6 +77,7 @@ if (isset($_POST['update'])) {
             <input type="text" name="intBranchID_fk" value="<?php echo $account['intBranchID_fk']; ?>" required><br>
             <label>Username</label>
             <input type="text" name="strAcntUser" value="<?php echo $account['strAcntUser']; ?>" required><br>
+            <input type="submit" name="update" value="Update">
         </form>
         <?php if ($updateSuccess): ?>
             <p>Account updated successfully!</p>
