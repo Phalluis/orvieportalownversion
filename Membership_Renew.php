@@ -4,21 +4,23 @@ include('connection.php');
 if (isset($_GET['memberid'])) {
     $id = $_GET['memberid'];
     
-    //Fetch the current membership end date
+    //hahanapin nya yung $id 
     $query = mysqli_query($conn, "SELECT intMemEnd FROM membershiptable WHERE intMemID='$id'");
     if (mysqli_num_rows($query) > 0) {
+        //aasign nya yung found na query sa $row
         $row = mysqli_fetch_assoc($query);
+        //assign nya yung column na intMemEnd sa $currentEndDate
         $currentEndDate = $row['intMemEnd'];
 
-        // Get the current date
+        //gets the current date
         $currentDate = date('Y-m-d');
         
-        //Check if the membership has expired
+        //chechek if tapos na ang membership
         if ($currentEndDate < $currentDate) {
-            //Extend the end date by one month
+            //aadjust nya yung $currentdate nang isang buwan at ilalagay sa $newEndDate with matching date syntax na nabasa ko sa documentation, i dont fully how it works
             $newEndDate = date('Y-m-d', strtotime($currentDate . ' + 1 month'));
             
-            // Update the end date in the database
+            //query para maupdate yung datebase with extension
             $updateQuery = mysqli_query($conn, "UPDATE membershiptable SET intMemEnd='$newEndDate' WHERE intMemID='$id'");
             
             if ($updateQuery) {

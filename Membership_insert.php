@@ -3,6 +3,7 @@
 	include('connection.php');
 	if (isset(
 		$_POST['submit'])) {
+		//assigns all of that shit
 		$strMemLN       = $_POST['strMemLN'];
 		$strMemFN       = $_POST['strMemFN'];
 		$intMemBirth    = $_POST['intMemBirth'];
@@ -15,6 +16,7 @@
 		$intMemEnd		= $_POST['intMemEnd'];
 		$intBranchID_fk = $_POST['intBranchID_fk'];
 
+		//makes a query
 		$query = mysqli_query($conn, "INSERT INTO membershiptable
 			(strMemLN, strMemFN, intMemBirth, intMemAge, strMemGender, intMemConNum, strMemConEmail, strMemAddress, intMemStart, intMemEnd, intBranchID_fk) VALUES
 			('$strMemLN', '$strMemFN', '$intMemBirth', '$intMemAge', '$strMemGender', '$intMemConNum', '$strMemConEmail','$strMemAddress', '$intMemStart', '$intMemEnd', '$intBranchID_fk')");
