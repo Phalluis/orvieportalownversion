@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
             strAcntLN='$strAcntLN',
             strAcntFN='$strAcntFN',
             intBranchID_fk='$intBranchID_fk',
-            strAcntUser='$strAcntUser',
+            strAcntUser='$strAcntUser'
         WHERE intAcntID=$intAcntID";
 
     $updateResult = mysqli_query($conn, $updateQuery);
